@@ -3,7 +3,7 @@ import React from "react";
 import { APP_TITLE } from "../../consts";
 import { FooterContainer } from "./footer.styled";
 
-const Footer = () => {
+export const Footer = () => {
   const now = new Date();
 
   return (
@@ -14,5 +14,3 @@ const Footer = () => {
     </FooterContainer>
   );
 };
-
-export default Footer;

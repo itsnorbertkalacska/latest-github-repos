@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 
 import { getRepos } from "../services/repos-service";
 
-const useRepos = () => {
+export const useRepos = () => {
   const [repos, setRepos] = useState([]);
   const [isDone, setIsDone] = useState(false);
   const [isError, setIsError] = useState(false);
@@ -33,5 +33,3 @@ const useRepos = () => {
 
   return { repos, isDone, isError, isLoading };
 };
-
-export default useRepos;

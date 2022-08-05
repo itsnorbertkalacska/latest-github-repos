@@ -2,19 +2,20 @@ import React from "react";
 
 import { useRepos } from "../hooks";
 import ReposComponent from "./repos-component";
+import { Loader } from "../components";
 
 const ReposContainer = () => {
   const { isError, isLoading, repos } = useRepos();
 
-  if (isLoading) {
-    return <p>Loading...</p>;
-  }
-
-  if (isError) {
-    return <p>An error occured. Please try again.</p>;
-  }
-
-  return <ReposComponent repos={repos} />;
+  return (
+    <Loader isLoading={isLoading}>
+      {isError ? (
+        <p>An error occured. Please try again.</p>
+      ) : (
+        <ReposComponent repos={repos} />
+      )}
+    </Loader>
+  );
 };
 
 export default ReposContainer;

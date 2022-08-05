@@ -1,3 +1,1 @@
-import useRepos from "./use-repos";
-
-export { useRepos };
+export * from "./use-repos";
