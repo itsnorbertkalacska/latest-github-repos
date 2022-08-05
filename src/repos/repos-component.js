@@ -1,13 +1,16 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+import { ReposContainer } from "./repos.styled";
+import RepoCard from "./repo-card";
+
 const ReposComponent = ({ repos }) => {
   return repos.length ? (
-    <ul>
+    <ReposContainer>
       {repos.map((repo) => (
-        <li key={`repo-${repo.id}`}>{repo.name}</li>
+        <RepoCard key={`repo-${repo.id}`} repo={repo} />
       ))}
-    </ul>
+    </ReposContainer>
   ) : (
     <p>No repos.</p>
   );
