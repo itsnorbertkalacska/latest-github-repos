@@ -1,18 +1,25 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { RepoCardContainer } from "./repo-card.styled";
+import { Button, Link } from "../../components";
+import { RepoCardContainer, ActionRow } from "./repo-card.styled";
 
 const RepoCard = ({
-  repo: { name, description, stargazersCount, htmlUrl },
+  repo: { name, description, stargazersCount, htmlUrl, isFavourited },
+  onSaveToFavourites,
 }) => (
   <RepoCardContainer>
     <h2>{name}</h2>
     <p>{description}</p>
     <p>Stars: {stargazersCount}</p>
-    <a href={htmlUrl} target="_blank" rel="noreferrer">
-      View it on GitHub
-    </a>
+    <ActionRow>
+      <Link href={htmlUrl} isExternal>
+        View it on GitHub
+      </Link>
+      <Button onClick={onSaveToFavourites}>
+        {isFavourited ? "Remove from Favourites" : "Save to Favourites"}
+      </Button>
+    </ActionRow>
   </RepoCardContainer>
 );
 
@@ -23,7 +30,9 @@ RepoCard.protoTypes = {
     htmlUrl: PropTypes.string,
     description: PropTypes.string,
     stargazersCount: PropTypes.number,
+    isFavourited: PropTypes.bool,
   }).isRequired,
+  onSaveToFavourites: PropTypes.func,
 };
 
 export default RepoCard;

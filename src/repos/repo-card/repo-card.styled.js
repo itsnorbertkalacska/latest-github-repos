@@ -10,4 +10,11 @@ const RepoCardContainer = styled.div`
   width: 100%;
 `;
 
-export { RepoCardContainer };
+const ActionRow = styled.div`
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: space-between;
+`;
+
+export { RepoCardContainer, ActionRow };

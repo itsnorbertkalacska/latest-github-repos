@@ -4,11 +4,15 @@ import PropTypes from "prop-types";
 import { ReposContainer } from "./repos.styled";
 import RepoCard from "./repo-card";
 
-const ReposComponent = ({ repos }) => {
+const ReposComponent = ({ repos, onSaveToFavourites }) => {
   return repos.length ? (
     <ReposContainer>
       {repos.map((repo) => (
-        <RepoCard key={`repo-${repo.id}`} repo={repo} />
+        <RepoCard
+          key={`repo-${repo.id}`}
+          repo={repo}
+          onSaveToFavourites={() => onSaveToFavourites(repo.id)}
+        />
       ))}
     </ReposContainer>
   ) : (
@@ -26,6 +30,7 @@ ReposComponent.propTypes = {
       stargazersCount: PropTypes.number,
     })
   ).isRequired,
+  onSaveToFavourites: PropTypes.func,
 };
 
 export default ReposComponent;
