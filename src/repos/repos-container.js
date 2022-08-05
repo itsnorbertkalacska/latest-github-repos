@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useMemo } from "react";
+import { subDays } from "date-fns";
 
 import { useRepos } from "../hooks";
 import ReposComponent from "./repos-component";
 import { Loader } from "../components";
 
 const ReposContainer = () => {
-  const { isError, isLoading, repos } = useRepos();
+  const aWeekAgo = useMemo(() => subDays(new Date(), 7), []);
+  const { isError, isLoading, repos } = useRepos({
+    sinceDate: aWeekAgo,
+  });
 
   return (
     <Loader isLoading={isLoading}>

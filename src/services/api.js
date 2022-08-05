@@ -14,9 +14,9 @@ const client = {
 };
 
 const api = {
-  fetchRepos: () =>
+  fetchRepos: (formattedSinceDate) =>
     client.get(
-      "search/repositories?q=created:>2022-07-28&sort=stars&order=desc"
+      `search/repositories?q=created:>${formattedSinceDate}&sort=stars&order=desc`
     ),
 };
 

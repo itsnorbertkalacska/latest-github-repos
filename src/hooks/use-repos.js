@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 
 import { getRepos } from "../services/repos-service";
 
-export const useRepos = () => {
+export const useRepos = ({ sinceDate }) => {
   const [repos, setRepos] = useState([]);
   const [isDone, setIsDone] = useState(false);
   const [isError, setIsError] = useState(false);
@@ -12,7 +12,7 @@ export const useRepos = () => {
     setIsLoading(true);
     setIsError(false);
 
-    getRepos()
+    getRepos(sinceDate)
       .then((repos) => {
         setRepos(repos);
       })
@@ -23,7 +23,7 @@ export const useRepos = () => {
         setIsDone(true);
         setIsLoading(false);
       });
-  }, []);
+  }, [sinceDate]);
 
   useEffect(() => {
     if (!isLoading && !isDone) {
