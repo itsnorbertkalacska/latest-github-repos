@@ -1,1 +1,1 @@
-export const APP_TITLE = "Latest GitHub Repos";
+export const APP_TITLE = "Discover Trending GitHub Repos";
