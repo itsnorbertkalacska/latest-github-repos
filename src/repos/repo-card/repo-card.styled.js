@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const RepoCardContainer = styled.div`
-  border: 1px solid #ccc;
+  border: 1px solid #efefef;
   border-radius: 0.33rem;
   flex: 1 0 30%;
   max-width: 100%;
