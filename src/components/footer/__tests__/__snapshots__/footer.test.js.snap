@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer renders component properly 1`] = `
+<footer
+  class="sc-bczRLJ iAVRiY"
+>
+  <p>
+    2022
+     © 
+    Discover Trending GitHub Repos
+  </p>
+</footer>
+`;

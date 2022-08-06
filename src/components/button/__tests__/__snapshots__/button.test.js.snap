@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button passes props propery 1`] = `
+<button
+  class="sc-bczRLJ iulNEE"
+  type="submit"
+>
+  Click me
+</button>
+`;

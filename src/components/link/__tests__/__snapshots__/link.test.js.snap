@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Link passes props properly 1`] = `
+<a
+  class="sc-bczRLJ eMETko"
+  href="/about"
+>
+  My Link
+</a>
+`;
+
+exports[`Link when external link passes props properly 1`] = `
+<a
+  class="sc-bczRLJ eMETko"
+  href="https://veed.io"
+  rel="noreferrer"
+  target="_blank"
+>
+  My Link
+</a>
+`;

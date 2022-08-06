@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header renders component properly 1`] = `
+<header
+  class="sc-gsnTZi iJFFfK"
+>
+  <img
+    alt="Discover Trending GitHub Repos logo"
+    class="sc-bczRLJ cfKNvW"
+    src="logo.svg"
+  />
+  <h1
+    class="sc-dkzDqf gcBLSw"
+  >
+    Discover Trending GitHub Repos
+  </h1>
+</header>
+`;

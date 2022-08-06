@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pill renders component properly 1`] = `
+<div
+  class="sc-bczRLJ biJXxJ"
+>
+  <p>
+    Fav
+  </p>
+</div>
+`;
