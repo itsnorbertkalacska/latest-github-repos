@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import { Button } from "../../components";
 import { ErrorContainer } from "./error.styled";
@@ -9,5 +10,9 @@ const Error = ({ onRetry }) => (
     <Button onClick={onRetry}>Retry</Button>
   </ErrorContainer>
 );
+
+Error.propTypes = {
+  onRetry: PropTypes.func,
+};
 
 export default Error;
