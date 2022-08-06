@@ -1,15 +1,18 @@
-import React, { useMemo } from "react";
+import React, { useMemo, useState } from "react";
 import { subDays } from "date-fns";
 import useLocalStorage from "use-local-storage";
 
 import { useRepos } from "../hooks";
-import ReposComponent from "./repos-component";
 import Error from "./error";
+import Filters from "./filters";
+import ReposComponent from "./repos-component";
 import { Loader } from "../components";
-import { isRepoInFavourites } from "./utils";
+import { isRepoInFavourites, enhanceRepos, filterRepos } from "./utils";
 
 const ReposContainer = () => {
+  const [filters, setFilters] = useState({ showOnlyFavourites: false });
   const aWeekAgo = useMemo(() => subDays(new Date(), 7), []);
+
   const [favouriteRepoIds, setFavouriteRepoIds] = useLocalStorage(
     "favouriteRepoIds",
     []
@@ -18,13 +21,14 @@ const ReposContainer = () => {
     sinceDate: aWeekAgo,
   });
   const enhancedRepos = useMemo(
-    () =>
-      repos.map((repo) => ({
-        ...repo,
-        isFavourited: isRepoInFavourites(repo.id, favouriteRepoIds),
-      })),
+    () => enhanceRepos(repos, favouriteRepoIds),
     [favouriteRepoIds, repos]
   );
+  const filteredRepos = filterRepos(enhancedRepos, filters);
+
+  const onFiltersChange = (newFilters) => {
+    setFilters(newFilters);
+  };
 
   const onSaveToFavourites = (repoId) => {
     if (isRepoInFavourites(repoId, favouriteRepoIds)) {
@@ -41,10 +45,13 @@ const ReposContainer = () => {
       {isError ? (
         <Error onRetry={() => fetchRepos()} />
       ) : (
-        <ReposComponent
-          repos={enhancedRepos}
-          onSaveToFavourites={onSaveToFavourites}
-        />
+        <>
+          <Filters onChange={onFiltersChange} filters={filters} />
+          <ReposComponent
+            repos={filteredRepos}
+            onSaveToFavourites={onSaveToFavourites}
+          />
+        </>
       )}
     </Loader>
   );
