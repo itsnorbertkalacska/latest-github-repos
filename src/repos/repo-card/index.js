@@ -1,9 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { Button, Link } from "../../components";
+import { Button, Link, Pill } from "../../components";
 import {
   RepoCardContainer,
+  TitleContainer,
+  Title,
   DescriptionContainer,
   ActionRow,
 } from "./repo-card.styled";
@@ -13,7 +15,10 @@ const RepoCard = ({
   onSaveToFavourites,
 }) => (
   <RepoCardContainer>
-    <h2>{name}</h2>
+    <TitleContainer>
+      <Title>{name}</Title>
+      {isFavourited && <Pill label="Favourite" />}
+    </TitleContainer>
     <DescriptionContainer>
       <p>{description}</p>
     </DescriptionContainer>

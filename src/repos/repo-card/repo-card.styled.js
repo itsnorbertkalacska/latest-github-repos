@@ -12,6 +12,18 @@ const RepoCardContainer = styled.div`
   width: 100%;
 `;
 
+const TitleContainer = styled.div`
+  align-items: center;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: space-between;
+`;
+
+const Title = styled.h2`
+  flex-grow: 1;
+`;
+
 const DescriptionContainer = styled.div`
   flex-grow: 1;
 `;
@@ -25,4 +37,10 @@ const ActionRow = styled.div`
   justify-self: flex-end;
 `;
 
-export { RepoCardContainer, DescriptionContainer, ActionRow };
+export {
+  RepoCardContainer,
+  TitleContainer,
+  Title,
+  DescriptionContainer,
+  ActionRow,
+};
