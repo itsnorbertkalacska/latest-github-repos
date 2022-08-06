@@ -1,5 +1,10 @@
-export const isRepoInFavourites = (repoId, favouriteRepoIds) =>
-  favouriteRepoIds.includes(repoId);
+export const isRepoInFavourites = (repoId, favouriteRepoIds) => {
+  if (!favouriteRepoIds?.length) {
+    return false;
+  }
+
+  return favouriteRepoIds.includes(repoId);
+};
 
 export const enhanceRepos = (repos, favouriteRepoIds) =>
   repos.map((repo) => ({
@@ -13,5 +18,5 @@ export const filterRepos = (repos, filters) =>
       return repo.isFavourited;
     }
 
-    return repo;
+    return true;
   });

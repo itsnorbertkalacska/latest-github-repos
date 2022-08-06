@@ -1,4 +1,4 @@
-import { renderWithProviders } from "../../../test-utils";
+import { renderWithProviders } from "../../../test-utils/test-helpers";
 import { Pill } from "../index";
 
 describe("Pill", () => {
