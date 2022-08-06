@@ -4,7 +4,9 @@ import useLocalStorage from "use-local-storage";
 
 import { useRepos } from "../hooks";
 import ReposComponent from "./repos-component";
+import Error from "./error";
 import { Loader } from "../components";
+import { isRepoInFavourites } from "./utils";
 
 const ReposContainer = () => {
   const aWeekAgo = useMemo(() => subDays(new Date(), 7), []);
@@ -12,20 +14,20 @@ const ReposContainer = () => {
     "favouriteRepoIds",
     []
   );
-  const { isError, isLoading, repos } = useRepos({
+  const { isError, isLoading, repos, fetchRepos } = useRepos({
     sinceDate: aWeekAgo,
   });
   const enhancedRepos = useMemo(
     () =>
       repos.map((repo) => ({
         ...repo,
-        isFavourited: favouriteRepoIds.includes(repo.id),
+        isFavourited: isRepoInFavourites(repo.id, favouriteRepoIds),
       })),
     [favouriteRepoIds, repos]
   );
 
   const onSaveToFavourites = (repoId) => {
-    if (favouriteRepoIds.includes(repoId)) {
+    if (isRepoInFavourites(repoId, favouriteRepoIds)) {
       setFavouriteRepoIds(
         favouriteRepoIds.filter((favouriteId) => favouriteId !== repoId)
       );
@@ -37,7 +39,7 @@ const ReposContainer = () => {
   return (
     <Loader isLoading={isLoading}>
       {isError ? (
-        <p>An error occured. Please try again.</p>
+        <Error onRetry={() => fetchRepos()} />
       ) : (
         <ReposComponent
           repos={enhancedRepos}

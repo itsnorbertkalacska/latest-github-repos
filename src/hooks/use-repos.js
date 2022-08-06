@@ -31,5 +31,5 @@ export const useRepos = ({ sinceDate }) => {
     }
   }, [isLoading, isDone, fetchRepos]);
 
-  return { repos, isDone, isError, isLoading };
+  return { repos, isDone, isError, isLoading, fetchRepos };
 };

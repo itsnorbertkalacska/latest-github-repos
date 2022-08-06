@@ -2,7 +2,11 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import { Button, Link } from "../../components";
-import { RepoCardContainer, ActionRow } from "./repo-card.styled";
+import {
+  RepoCardContainer,
+  DescriptionContainer,
+  ActionRow,
+} from "./repo-card.styled";
 
 const RepoCard = ({
   repo: { name, description, stargazersCount, htmlUrl, isFavourited },
@@ -10,7 +14,9 @@ const RepoCard = ({
 }) => (
   <RepoCardContainer>
     <h2>{name}</h2>
-    <p>{description}</p>
+    <DescriptionContainer>
+      <p>{description}</p>
+    </DescriptionContainer>
     <p>Stars: {stargazersCount}</p>
     <ActionRow>
       <Link href={htmlUrl} isExternal>
