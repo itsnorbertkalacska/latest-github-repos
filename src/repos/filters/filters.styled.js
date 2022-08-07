@@ -1,8 +1,14 @@
 import styled from "styled-components";
 
-const FiltersContainer = styled.div`
-  margin-bottom: 2rem;
+const Container = styled.div`
+  margin-bottom: 3rem;
   padding: 0 1rem;
+`;
+
+const FiltersContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
 `;
 
 const ToggleFilter = styled.label`
@@ -10,10 +16,15 @@ const ToggleFilter = styled.label`
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
+  margin-right: 2rem;
 
   input {
     margin-right: 0.5rem;
   }
 `;
 
-export { FiltersContainer, ToggleFilter };
+const LanguageSelect = styled.select`
+  margin-left: 0.5rem;
+`;
+
+export { Container, FiltersContainer, ToggleFilter, LanguageSelect };

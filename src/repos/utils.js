@@ -13,10 +13,22 @@ export const enhanceRepos = (repos, favouriteRepoIds) =>
   }));
 
 export const filterRepos = (repos, filters) =>
-  repos.filter((repo) => {
-    if (filters.showOnlyFavourites) {
-      return repo.isFavourited;
-    }
+  repos
+    .filter((repo) => {
+      if (filters.showOnlyFavourites) {
+        return repo.isFavourited;
+      }
 
-    return true;
-  });
+      return true;
+    })
+    .filter((repo) => {
+      if (filters.languageUsed) {
+        if (repo.language) {
+          return filters.languageUsed === repo.language;
+        }
+
+        return false;
+      }
+
+      return true;
+    });
