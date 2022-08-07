@@ -28,6 +28,7 @@ ReposComponent.propTypes = {
       htmlUrl: PropTypes.string,
       description: PropTypes.string,
       stargazersCount: PropTypes.number,
+      isFavourited: PropTypes.bool,
     })
   ).isRequired,
   onSaveToFavourites: PropTypes.func,

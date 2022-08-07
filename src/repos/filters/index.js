@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import { FiltersContainer, ToggleFilter } from "./filters.styled";
 
 const Filters = ({ filters, onChange }) => (
-  <FiltersContainer>
+  <FiltersContainer data-testid="filters-container">
     <ToggleFilter>
       <input
         type="checkbox"

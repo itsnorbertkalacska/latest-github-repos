@@ -43,7 +43,7 @@ const ReposContainer = () => {
   return (
     <Loader isLoading={isLoading}>
       {isError ? (
-        <Error onRetry={() => fetchRepos()} />
+        <Error onRetry={fetchRepos} />
       ) : (
         <>
           <Filters onChange={onFiltersChange} filters={filters} />
