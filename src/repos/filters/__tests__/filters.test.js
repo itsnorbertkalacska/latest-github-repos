@@ -8,6 +8,7 @@ describe("Repos Filters", () => {
     filters: {
       showOnlyFavourites: false,
     },
+    languageFilters: [],
     onChange,
   };
 
